@@ -1,18 +1,28 @@
 import com.BasicPageActionsUtils;
+import com.CommonUtils;
 import com.driverfactory.DriverFactory;
-import com.pagefactory.PageFactory;
-import com.pages.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 public class BaseTest {
 
     public static final String URL = "https://katalon-demo-cura.herokuapp.com";
     static WebDriver driver = DriverFactory.getChromeDriver();
     static BasicPageActionsUtils utils = BasicPageActionsUtils.getBasicPageActionsUtils();
+    Properties prop;
+
+    {
+        try {
+            prop = CommonUtils.readPropertiesFile("C:\\Users\\37529\\IdeaProjects\\MyTestSeleniumProject\\credentials.properties");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @BeforeSuite(description = "Get Chrome")
     static void setup() {

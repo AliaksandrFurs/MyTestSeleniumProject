@@ -26,7 +26,7 @@ public class MakeAppointmentPageTest extends BaseTest{
     @BeforeClass
     public void navigateTo(){
         driver.findElement(mainBasicPage.getMakeAppointmentButton()).click();
-        loginPage.doLogin("John Doe", "ThisIsNotAPassword");
+        loginPage.doLogin(prop.getProperty("login"), prop.getProperty("password"));
         builder = MakeAppointmentPage.MakeAppointmentBuilder.getNakeAppointmentBuilder();
         BasePage.setAuthorised(true);
         //wait.until(ExpectedConditions.visibilityOfElementLocated(loginPage.getFooterTop()));
